@@ -15,8 +15,7 @@ For ciphers with a relatively small $K$, I utilized AI-optimized scripts to iter
 
 * **Hill Cipher ($2 \times 2$):** With $26^4 = 456,976$ total possibilities, the space was reduced further to invertible matrices modulo 26:
     $$\text{Key Space } |K| \approx 157,248$$
-* **Columnar Transposition:** With key lengths restricted to $8 \le L \le 10$, the maximum search space was:
-    $$\sum_{L=8}^{10} L! = 4,032,000$$
+* **Columnar Transposition:** With key lengths restricted to $8 \le L \le 10$, the maximum search space was 4,032,000
 
 
 

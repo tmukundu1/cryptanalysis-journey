@@ -1,6 +1,39 @@
-# Cryptanalysis Investigation: From Search Space to Solution
-This repository documents my end-to-end investigation and decryption of five distinct ciphertexts. The core of my strategy was based on analyzing the mathematical search space of each cipher and utilizing AI-assisted tool building to navigate complex heuristic landscapes.
-[📂 View the Full Investigation Notebook](./cyrptanalysis_story_v1.ipynb)
-🛠 The Strategy
-I categorized the challenges into two tactical groups based on their total key possibilities:Exhaustive Search (Brute Force):Ciphers: $2 \times 2$ Hill Cipher and Columnar Transposition (Key lengths 8–10).Logic: Since the search space was capped at ~4 million permutations, I used AI-generated scripts to iterate through all possible keys in seconds.Heuristic Optimization (Meta-Heuristics):Ciphers: Playfair, Vigenère, and Monoalphabetic Substitution.Logic: With search spaces as large as $26!$, brute force was impossible. I developed Hill Climbing and Simulated Annealing solvers, using AI to scaffold the fitness functions based on English quadgram frequency.📈 Key HighlightsThe "Skeleton" Experiment: My attempt to solve the Monoalphabetic cipher by brute-forcing only the top 80% of English letter frequencies (and why it necessitated a move to Simulated Annealing).Local Maxima: Overcoming the "greedy" nature of standard Hill Climbing by implementing cooling schedules in Simulated Annealing.100% Recovery: Full plaintext recovery across all five emails.
+# Cryptanalysis Investigation: Search Space & Heuristics
 
+This repository documents a comprehensive cryptanalysis of five distinct ciphertexts. The investigation pivoted from manual frequency analysis to a high-level strategic approach: **analyzing mathematical search space complexity** and utilizing **AI-assisted tool building** to navigate it.
+
+## 📂 [View the Investigation Notebook](./Cryptanalysis_Journey_Final.ipynb)
+
+---
+
+## 🔬 The Strategy: Search Space vs. Effort
+
+The core methodology was defined by the total key space $K$ of each cipher. By leveraging AI to scaffold complex solvers, the "coding effort" was neutralized, leaving the mathematical limits of the search space as the only true constraint.
+
+### 1. Exhaustive Search (Brute Force)
+For ciphers with a relatively small $K$, I utilized AI-optimized scripts to iterate through the entire key space.
+
+* **Hill Cipher ($2 \times 2$):** With $26^4 = 456,976$ total possibilities, the space was reduced further to invertible matrices modulo 26:
+    $$\text{Key Space } |K| \approx 157,248$$
+* **Columnar Transposition:** With key lengths restricted to $8 \le L \le 10$, the maximum search space was:
+    $$\sum_{L=8}^{10} L! = 4,032,000$$
+
+
+
+### 2. Heuristic Optimization
+For ciphers where $|K|$ exceeds $10^{20}$, brute force is physically impossible. 
+
+* **Monoalphabetic Substitution:** The search space is defined by $26!$:
+    $$26! \approx 4.03 \times 10^{26}$$
+* **The Approach:** I initially attempted a "Skeleton" attack by fixing the top 9 English letters (representing $\approx 75\%$ of the language) and brute-forcing the remaining positions. When this failed to provide enough context, I implemented **Simulated Annealing** to escape the **Local Maxima** encountered during standard Hill Climbing.
+
+
+
+---
+
+## 📈 Technical Highlights
+* **Fitness Functions:** Utilized AI to build scoring engines based on English quadgram log-probabilities.
+* **Annealing Schedules:** Developed a custom cooling schedule $T_{i+1} = T_i \times \alpha$ to ensure global convergence on the $26!$ search space.
+* **100% Success Rate:** Successfully recovered the plaintext for all five targeted communications.
+
+---

@@ -2,7 +2,7 @@
 
 This repository documents a comprehensive cryptanalysis of five distinct ciphertexts. The investigation pivoted from manual frequency analysis to a high-level strategic approach: **analyzing mathematical search space complexity** and utilizing **AI-assisted tool building** to navigate it.
 
-## 📂 [View the Investigation Notebook](./cyrptanalysis_story_v1.html)
+## 📂 [View the Investigation Notebook](./cyrptanalysis_story_v1.ipynb)
 
 ---
 

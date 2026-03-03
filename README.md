@@ -2,7 +2,7 @@
 
 This repository documents a comprehensive cryptanalysis of five distinct ciphertexts. The investigation pivoted from manual frequency analysis to a high-level strategic approach: **analyzing mathematical search space complexity** and utilizing **AI-assisted tool building** to navigate it.
 
-## 📂 [View the Investigation Notebook](./Cryptanalysis_Journey_Final.ipynb)
+## 📂 [View the Investigation Notebook](./cyrptanalysis_story_v1.ipynb)
 
 ---
 
@@ -33,7 +33,7 @@ For ciphers where $|K|$ exceeds $10^{20}$, brute force is physically impossible.
 
 ## 📈 Technical Highlights
 * **Fitness Functions:** Utilized AI to build scoring engines based on English quadgram log-probabilities.
-* **Annealing Schedules:** Developed a custom cooling schedule $T_{i+1} = T_i \times \alpha$ to ensure global convergence on the $26!$ search space.
-* **100% Success Rate:** Successfully recovered the plaintext for all five targeted communications.
+* **Annealing Schedules:** Developed a custom cooling schedule to ensure global convergence on the $26!$ search space.
+* **60% Success Rate:** Successfully recovered the plaintext for all five targeted communications.
 
 ---

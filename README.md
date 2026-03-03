@@ -1,2 +1,6 @@
-# My Cryptanalysis Journey
-This repository contains my cryptanalysis investigation. Please view the [Jupyter Notebook](./cyrptanalysis_story_v1.ipynb) for the full report and results.
+# Cryptanalysis Investigation: From Search Space to Solution
+This repository documents my end-to-end investigation and decryption of five distinct ciphertexts. The core of my strategy was based on analyzing the mathematical search space of each cipher and utilizing AI-assisted tool building to navigate complex heuristic landscapes.
+[📂 View the Full Investigation Notebook](./cyrptanalysis_story_v1.ipynb)
+🛠 The Strategy
+I categorized the challenges into two tactical groups based on their total key possibilities:Exhaustive Search (Brute Force):Ciphers: $2 \times 2$ Hill Cipher and Columnar Transposition (Key lengths 8–10).Logic: Since the search space was capped at ~4 million permutations, I used AI-generated scripts to iterate through all possible keys in seconds.Heuristic Optimization (Meta-Heuristics):Ciphers: Playfair, Vigenère, and Monoalphabetic Substitution.Logic: With search spaces as large as $26!$, brute force was impossible. I developed Hill Climbing and Simulated Annealing solvers, using AI to scaffold the fitness functions based on English quadgram frequency.📈 Key HighlightsThe "Skeleton" Experiment: My attempt to solve the Monoalphabetic cipher by brute-forcing only the top 80% of English letter frequencies (and why it necessitated a move to Simulated Annealing).Local Maxima: Overcoming the "greedy" nature of standard Hill Climbing by implementing cooling schedules in Simulated Annealing.100% Recovery: Full plaintext recovery across all five emails.
+

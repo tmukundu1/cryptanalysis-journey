@@ -8,10 +8,10 @@ This repository documents a comprehensive cryptanalysis of five distinct ciphert
 
 ## 🔬 The Strategy: Search Space vs. Effort
 
-The core methodology was defined by the total key space $K$ of each cipher. By leveraging AI to scaffold complex solvers, the "coding effort" was neutralized, leaving the mathematical limits of the search space as the only true constraint.
+The core methodology was defined by the total key space $K$ of each cipher. By leveraging AI to scaffold complex solvers, the coding effort was neutralized, leaving the mathematical limits of the search space as the only true constraint.
 
 ### 1. Exhaustive Search (Brute Force)
-For ciphers with a relatively small $K$, I utilized AI-optimized scripts to iterate through the entire key space.
+For ciphers with a relatively small $K$, I utilized optimized scripts to iterate through the entire key space.
 
 * **Hill Cipher ($2 \times 2$):** With $26^4 = 456,976$ total possibilities, the space was reduced further to invertible matrices modulo 26:
     $$\text{Key Space } |K| \approx 157,248$$
@@ -31,8 +31,8 @@ For ciphers where $|K|$ exceeds $10^{20}$, brute force is physically impossible.
 ---
 
 ## 📈 Technical Highlights
-* **Fitness Functions:** Utilized AI to build scoring engines based on English quadgram log-probabilities.
+* **Fitness Functions:** Built scoring engines based on English quadgram log-probabilities and Index of Coincidence.
 * **Annealing Schedules:** Developed a custom cooling schedule to ensure global convergence on the $26!$ search space.
-* **60% Success Rate:** Successfully recovered the plaintext for all five targeted communications.
+* **60% Success Rate:** Successfully recovered the plaintext for three of the five targeted communications.
 
 ---
